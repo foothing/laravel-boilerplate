@@ -1,19 +1,47 @@
-const elixir = require('laravel-elixir');
+var gulp = require('gulp'),
+	rename = require('gulp-rename'),
+	concat = require('gulp-concat'),
+	uglify = require('gulp-uglify'),
+	copy = require('gulp-copy'),
+	ngAnnotate = require('gulp-ng-annotate');
 
-require('laravel-elixir-vue-2');
+gulp.task('css', function() {
+	// @TODO concat w/ fix references.
+	// https://stackoverflow.com/questions/44635984/concat-and-minify-assets-from-3rd-party-libraries
+	return gulp.src([
+			'node_modules/bootstrap/dist/css/bootstrap.min.css'
+		])
+		//.pipe(concat('libs.min.css'))
+		.pipe(gulp.dest('public/dist'))
+		.pipe(gulp.src(['node_modules/bootstrap/dist/fonts/*']))
+	    .pipe(gulp.dest('public/fonts'))
+});
 
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for your application as well as publishing vendor resources.
- |
- */
+gulp.task('js', function() {
+	return gulp.src([
+		'node_modules/angular/angular.min.js',
+		'node_modules/angular-ui-router/release/angular-ui-router.min.js',
+		'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
+		'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'
+		])
+		.pipe(concat('libs.min.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('public/dist'));
+});
 
-elixir((mix) => {
-    mix.sass('app.scss')
-       .webpack('app.js');
+gulp.task('app', function() {
+	return gulp.src('public/src/**/*.js')
+		.pipe(concat('main.js'))
+		.pipe(rename({ suffix: '.min' }))
+		.pipe(ngAnnotate())
+		.pipe(uglify())
+		.pipe(gulp.dest('public/dist'));
+});
+
+gulp.task('default', function(){
+	gulp.start('js', 'app', 'css');
+});
+
+gulp.task('watch', function(){
+	gulp.watch('public/src/**/*.js', ['app']);
 });
