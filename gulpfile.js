@@ -3,7 +3,8 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	copy = require('gulp-copy'),
-	ngAnnotate = require('gulp-ng-annotate');
+	ngAnnotate = require('gulp-ng-annotate'),
+	server = require('karma').Server;
 
 gulp.task('css', function() {
 	// @TODO concat w/ fix references.
@@ -19,10 +20,10 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
 	return gulp.src([
-		'node_modules/angular/angular.min.js',
-		'node_modules/angular-ui-router/release/angular-ui-router.min.js',
-		'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
-		'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'
+			'node_modules/angular/angular.min.js',
+			'node_modules/angular-ui-router/release/angular-ui-router.min.js',
+			'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
+			'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'
 		])
 		.pipe(concat('libs.min.js'))
 		.pipe(uglify())
@@ -44,4 +45,13 @@ gulp.task('default', function(){
 
 gulp.task('watch', function(){
 	gulp.watch('public/src/**/*.js', ['app']);
+
+	gulp.watch('public/tests/**/*.js', ['test']);
+});
+
+gulp.task('test', function (done) {
+	new server({
+		configFile: __dirname + '/karma.conf.js',
+		singleRun: true
+	}, done).start();
 });

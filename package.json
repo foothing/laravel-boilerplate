@@ -1,25 +1,32 @@
 {
-	"name": "laravel-boilerplate",
-	"version": "0",
-	"main": "index.js",
-	"author": "brazorf",
-	"license": "MIT",
-	"private": true,
-	"scripts": {
-		"prod": "gulp --production",
-		"dev": "gulp watch"
-	},
-	"devDependencies": {
-		"gulp": "^3.9.1"
-	},
-	"dependencies": {
-		"angular": "^1.6.4",
-		"angular-ui-bootstrap": "^2.5.0",
-		"angular-ui-router": "^1.0.3",
-		"bootstrap": "^3.3.7",
-		"gulp-concat": "^2.6.1",
-		"gulp-ng-annotate": "^2.0.0",
-		"gulp-rename": "^1.2.2",
-		"gulp-uglify": "^3.0.0"
-	}
+  "name": "laravel-boilerplate",
+  "version": "0",
+  "main": "index.js",
+  "author": "brazorf",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-copy": "^1.0.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "jasmine": "^2.6.0",
+    "karma": "^1.7.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4"
+  },
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-mocks": "^1.6.4",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angular-ui-router": "^1.0.3",
+    "bootstrap": "^3.3.7"
+  }
 }
