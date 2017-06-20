@@ -12,7 +12,6 @@
 
 	module.run(function(){
 		alert('Boilerplate.');
-
 	});
 
 })(angular, angular.module('app', ['ui.router', 'ui.bootstrap', 'app.foo', 'app.bar']));
