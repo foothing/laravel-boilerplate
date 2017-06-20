@@ -11,7 +11,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-        <link href="/dist/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <!-- <link href="/dist/libs.min.css" rel="stylesheet" type="text/css"> -->
     </head>
 
@@ -33,8 +33,8 @@
 
         <div ui-view></div>
 
-        <script src="dist/libs.min.js?<?=$_v?>"></script>
-        <script src="dist/main.min.js?<?=$_v?>"></script>
+        <script src="/assets/js/libs.min.js?<?=$_v?>"></script>
+        <script src="/assets/js/main.min.js?<?=$_v?>"></script>
     </body>
 
 </html>

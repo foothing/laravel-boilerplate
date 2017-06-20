@@ -13,9 +13,9 @@ gulp.task('css', function() {
 			'node_modules/bootstrap/dist/css/bootstrap.min.css'
 		])
 		//.pipe(concat('libs.min.css'))
-		.pipe(gulp.dest('public/dist'))
+		.pipe(gulp.dest('public/assets/css'))
 		.pipe(gulp.src(['node_modules/bootstrap/dist/fonts/*']))
-	    .pipe(gulp.dest('public/fonts'))
+		.pipe(gulp.dest('public/assets/fonts'))
 });
 
 gulp.task('js', function() {
@@ -27,7 +27,7 @@ gulp.task('js', function() {
 		])
 		.pipe(concat('libs.min.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest('public/dist'));
+		.pipe(gulp.dest('public/assets/js'));
 });
 
 gulp.task('app', function() {
@@ -36,7 +36,7 @@ gulp.task('app', function() {
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(ngAnnotate())
 		.pipe(uglify())
-		.pipe(gulp.dest('public/dist'));
+		.pipe(gulp.dest('public/assets/js'));
 });
 
 gulp.task('default', function(){
