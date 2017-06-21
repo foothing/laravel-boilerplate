@@ -1,7 +1,7 @@
 (function(angular, module){
 
 	module.run(function(){
-		alert('Foo.');
+		//alert('Foo.');
 	});
 
 	module.factory('foo', function(){

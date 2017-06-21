@@ -1,7 +1,7 @@
 (function(angular, module){
 
 	module.run(function(){
-		alert('Bar.');
+		//alert('Bar.');
 	});
 
 })(angular, angular.module('app.bar', []));

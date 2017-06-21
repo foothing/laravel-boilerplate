@@ -4,18 +4,24 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	copy = require('gulp-copy'),
 	ngAnnotate = require('gulp-ng-annotate'),
-	server = require('karma').Server;
+	server = require('karma').Server,
+	merge = require('merge-stream');
 
 gulp.task('css', function() {
 	// @TODO concat w/ fix references.
 	// https://stackoverflow.com/questions/44635984/concat-and-minify-assets-from-3rd-party-libraries
-	return gulp.src([
-			'node_modules/bootstrap/dist/css/bootstrap.min.css'
-		])
-		//.pipe(concat('libs.min.css'))
-		.pipe(gulp.dest('public/assets/css'))
-		.pipe(gulp.src(['node_modules/bootstrap/dist/fonts/*']))
-		.pipe(gulp.dest('public/assets/fonts'))
+
+	var styles = ['node_modules/bootstrap/dist/css/bootstrap.min.css'];
+
+	var css =
+		gulp.src(styles)
+		.pipe(concat('libs.min.css'))
+		.pipe(gulp.dest('public/assets/css'));
+	var assets =
+		gulp.src(['node_modules/bootstrap/dist/fonts/*'])
+		.pipe(gulp.dest('public/assets/fonts'));
+
+	return merge(css, assets);
 });
 
 gulp.task('js', function() {

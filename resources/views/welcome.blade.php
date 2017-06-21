@@ -26,12 +26,10 @@
                         A tooltip
                     </span>
 
-
+                    <div ui-view></div>
                 </div>
             </div>
         </div>
-
-        <div ui-view></div>
 
         <script src="/assets/js/libs.min.js?<?=$_v?>"></script>
         <script src="/assets/js/main.min.js?<?=$_v?>"></script>
