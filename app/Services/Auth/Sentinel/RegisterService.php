@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Mail;
 
 class RegisterService {
 
-    public function register(array $credentials, $url) {
+    public function register(array $credentials) {
         if (! $user = Sentinel::register($credentials)) {
             return false;
         }
@@ -18,13 +18,9 @@ class RegisterService {
             return false;
         }
 
-        $activationUrl = $this->getActivationUrl($url, $activation->getCode());
+        $activationUrl = route('auth.activate', ['token' => $activation->getCode()]);
         $this->emailRegistration($user, $activationUrl);
         return $user;
-    }
-
-    protected function getActivationUrl($url, $activationCode) {
-        return rtrim($url, " /") . "/" . $activationCode;
     }
 
     protected function emailRegistration($user, $activationUrl) {

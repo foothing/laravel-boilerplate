@@ -14,6 +14,12 @@
     </div>
     @endif
 
+    @if (Session::has('message'))
+    <div class="alert alert-success">
+        {!! Session::get('message') !!}
+    </div>
+    @endif
+
     <form name="login" method="post" action="/auth/login">
         {!! csrf_field() !!}
 

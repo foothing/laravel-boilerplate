@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Auth\Sentinel\Stateful;
+use App\Services\Auth\Sentinel\Stateful;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Auth\StatefulGuard;
 

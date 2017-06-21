@@ -17,6 +17,7 @@ return [
     'throttle' => 'Troppi tentativi di login. Riprova tra :seconds secondi.',
     'unactive' => 'Il tuo account non è ancora stato attivato.',
     'failed.creation' => 'Si è verificato un errore.',
+    'activated' => 'Il tuo account è stato attivato, ora puoi effettuare il login.',
 
     'emails.registered.subject' => 'Il tuo account è stato creato',
     'emails.activated.subject' => 'Il tuo account è stato attivato',

@@ -1,8 +1,6 @@
 <?php namespace App\Http\Controllers\Auth\Sentinel;
 
 use App\Http\Traits\FlashesMessages;
-use Cartalyst\Sentinel\Laravel\Facades\Activation;
-use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;

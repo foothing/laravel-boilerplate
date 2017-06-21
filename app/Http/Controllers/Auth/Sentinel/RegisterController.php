@@ -33,7 +33,7 @@ class RegisterController {
                 return Redirect::back()->withInput()->withErrors($validator);
             }
 
-            if ($user = $this->service->register($input, "auth/activate")) {
+            if ($user = $this->service->register($input)) {
                 //$this->putMessage("fatto");
                 //return $this->showMessage();
                 return redirect('/');
@@ -52,7 +52,7 @@ class RegisterController {
     public function getActivate($token) {
         try {
             $this->service->activate($token);
-            return redirect('/');
+            return redirect()->route('auth.login')->with('message', trans('auth.activated'));
         }
 
         catch (\Exception $ex) {
