@@ -3,7 +3,7 @@
 return [
 
     // Actually the only available provider is with Lock.
-	'permissionsProvider' => 'Foothing\Wrappr\Providers\Permissions\LockProvider',
+	'permissionsProvider' => 'Foothing\Wrappr\Lock\LockProvider',
 
     // Available providers:
     // - Foothing\Wrappr\Providers\Users\DefaultProvider
@@ -19,18 +19,17 @@ return [
 
 	'install' => [
 		'routes' => [
-//		[
-//			'verb' => 'post',
-//			'path' => 'api/v1/resources/users',
-//			'permissions' => 'admin.account',
-//			'resource' => 'user',
-//		],
-//		[
-//			'verb' => 'get',
-//			'path' => 'api/v1/resources/users',
-//			'permissions' => ['admin.account', 'posts.create'],
-//			'resource' => 'user',
-//		],
+    //		[
+    //			'verb' => 'get',
+    //			'path' => 'api/v1/resources/users',
+    //			'permissions' => ['admin.account', 'posts.create'],
+    //			'resource' => 'user',
+    //		],
+            [
+                'verb' => '*',
+                'path' => 'resources/*',
+                'permissions' => 'admin',
+            ],
 		],
 
 	],

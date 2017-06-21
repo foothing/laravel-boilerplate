@@ -17,3 +17,5 @@ Route::group(['middleware' => 'guest'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('auth/logout', 'App\Http\Controllers\Auth\Sentinel\LoginController@getLogout')->name('auth.logout');
 });
+
+\Foothing\RepositoryController\Controllers\RouteInstaller::install();

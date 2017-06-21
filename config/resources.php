@@ -9,7 +9,7 @@ return [
     // The implementation should be a fully qualified namespace to the model.
     'resources' => [
         // Example:
-        //'person' => 'Qualified/Namespace',
+        'user' => \Cartalyst\Sentinel\Users\EloquentUser::class,
     ],
 
     // By default, the RepositoryLoader will use an EloquentRepository

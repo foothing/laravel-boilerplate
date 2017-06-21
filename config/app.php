@@ -179,6 +179,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
+        \Foothing\RepositoryController\RepositoryControllerServiceProvider::class,
+        \Foothing\Wrappr\WrapprServiceProvider::class,
+        BeatSwitch\Lock\Integrations\Laravel\LockServiceProvider::class,
 
     ],
 
