@@ -1,7 +1,6 @@
-<?php namespace App\Auth\Sentinel;
+<?php namespace App\Services\Auth\Sentinel;
 
 use Cartalyst\Sentinel\Sentinel;
-use Cartalyst\Sentinel\Users\EloquentUser;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\StatefulGuard;
 

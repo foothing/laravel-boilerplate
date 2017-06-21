@@ -19,5 +19,5 @@ return [
     'failed.creation' => 'Si è verificato un errore.',
 
     'emails.registered.subject' => 'Il tuo account è stato creato',
-    'emails.registered.activated' => 'Il tuo account è stato attivato',
+    'emails.activated.subject' => 'Il tuo account è stato attivato',
 ];
