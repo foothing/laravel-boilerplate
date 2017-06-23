@@ -18,7 +18,10 @@ return [
     'unactive' => 'Il tuo account non è ancora stato attivato.',
     'failed.creation' => 'Si è verificato un errore.',
     'activated' => 'Il tuo account è stato attivato, ora puoi effettuare il login.',
+    'password' => 'Ti abbiamo inviato una email con le istruzioni per recuperare la tua password.',
+    'reset' => 'Password aggiornata.',
 
     'emails.registered.subject' => 'Il tuo account è stato creato',
     'emails.activated.subject' => 'Il tuo account è stato attivato',
+    'emails.password.subject' => 'Modifica la tua password',
 ];
