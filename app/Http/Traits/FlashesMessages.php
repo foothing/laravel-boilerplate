@@ -8,15 +8,17 @@ trait FlashesMessages {
         return Session::get('messages.message');
     }
 
-    protected function putMessage($message, $title = null) {
-        return Session::flash('messages.message', ['message' => $message, 'title' => $title]);
+    protected function putMessage($message, $type = 'success', $title = null) {
+        return Session::flash('messages.message', (object)[
+            'text' => $message,
+            'type' => $type,
+            'title' => $title,
+        ]);
     }
 
-    protected function showMessage() {
-        if ($message = $this->getMessage()) {
-            return view('app.message', $message);
-        }
+    protected function showMessage($message, $type = 'success', $title = null) {
+        $this->putMessage($message, $type, $title);
 
-        abort(404);
+        return redirect()->route('message');
     }
 }

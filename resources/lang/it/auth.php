@@ -20,6 +20,7 @@ return [
     'activated' => 'Il tuo account è stato attivato, ora puoi effettuare il login.',
     'password' => 'Ti abbiamo inviato una email con le istruzioni per recuperare la tua password.',
     'reset' => 'Password aggiornata.',
+    'created' => 'Il tuo account è stato creato, riceverai una mail con le istruzioni per effettuare il login.',
 
     'emails.registered.subject' => 'Il tuo account è stato creato',
     'emails.activated.subject' => 'Il tuo account è stato attivato',

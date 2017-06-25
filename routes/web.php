@@ -4,6 +4,8 @@ Route::get('/', function () {
     return view('app.home');
 });
 
+Route::get('message', 'App\Http\Controllers\MessageController@getIndex')->name('message');
+
 Route::group(['middleware' => 'guest'], function () {
     Route::get('auth/login', 'App\Http\Controllers\Auth\Sentinel\LoginController@getLogin')->name('auth.login');
     Route::post('auth/login', 'App\Http\Controllers\Auth\Sentinel\LoginController@postLogin');

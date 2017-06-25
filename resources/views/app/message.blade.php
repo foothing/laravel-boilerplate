@@ -4,6 +4,8 @@
 
 <h1>This is for displaying flash messages.</h1>
 
-{!! $message !!}
+<div class="alert alert-{!! $message->type !!}">
+    {!! $message->text !!}
+</div>
 
 @endsection

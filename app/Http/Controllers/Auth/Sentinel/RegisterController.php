@@ -34,9 +34,7 @@ class RegisterController {
             }
 
             if ($user = $this->service->register($input)) {
-                //$this->putMessage("fatto");
-                //return $this->showMessage();
-                return redirect('/');
+                return $this->showMessage(trans('auth.created'));
             }
 
             $errors = trans('auth.failed.creation');
