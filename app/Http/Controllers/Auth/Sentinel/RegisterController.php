@@ -26,7 +26,7 @@ class RegisterController {
     public function postRegister(Request $request) {
         try {
             $input = $request->all();
-            $rules = ['email' => 'required|email|unique:users','password' => 'required|confirmed',];
+            $rules = ['email' => 'required|email|unique:users','password' => 'required|confirmed','g-recaptcha-response' => 'required|recaptcha',];
             $validator = Validator::make($input, $rules);
 
             if ($validator->fails()) {

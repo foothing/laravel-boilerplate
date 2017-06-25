@@ -29,6 +29,8 @@
             <input type="password" name="password_confirmation" class="form-control" placeholder="Repeat Password">
         </div>
 
+        {!! Recaptcha::render() !!}
+
         <button type="submit" class="btn">Register</button>
     </form>
 

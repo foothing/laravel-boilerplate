@@ -41,7 +41,7 @@ class LoginController extends Controller {
     public function postLogin(Request $request) {
         try {
             $input = $request->all();
-            $rules = ['email' => 'required|email','password' => 'required',];
+            $rules = ['email' => 'required|email','password' => 'required','g-recaptcha-response' => 'required|recaptcha',];
             $validator = Validator::make($input, $rules);
 
             if ($validator->fails()) {
