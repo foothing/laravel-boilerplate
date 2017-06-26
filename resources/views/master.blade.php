@@ -17,7 +17,7 @@
 
 <body>
 
-<div id="app-preloader" ng-if="false">
+<div class="app-preloader" ng-if="false">
     <img src="/assets/img/preloader.gif">
 </div>
 
