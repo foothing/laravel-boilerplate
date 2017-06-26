@@ -4,8 +4,257 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "76036da3b5b55b91dbe1e1affa01bf9e",
+    "content-hash": "9e8a1de88183a131d3cba3ad1664355e",
     "packages": [
+        {
+            "name": "beatswitch/lock",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BeatSwitch/lock.git",
+                "reference": "3ee653e76ed17eb0b691a4fd52b15e7fd2d57ae6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BeatSwitch/lock/zipball/3ee653e76ed17eb0b691a4fd52b15e7fd2d57ae6",
+                "reference": "3ee653e76ed17eb0b691a4fd52b15e7fd2d57ae6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "^0.1.2",
+                "phpspec/phpspec": "~2.1",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BeatSwitch\\Lock\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dries Vints",
+                    "email": "dries.vints@gmail.com",
+                    "homepage": "http://driesvints.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "BeatSwitch",
+                    "email": "hello@beatswitch.com",
+                    "homepage": "https://www.beatswitch.com"
+                }
+            ],
+            "description": "A flexible, driver based Acl package for PHP 5.4+",
+            "homepage": "https://github.com/BeatSwitch/lock",
+            "keywords": [
+                "acl",
+                "asserts",
+                "beatswitch",
+                "conditions",
+                "drivers",
+                "permissions",
+                "roles",
+                "security"
+            ],
+            "time": "2015-09-16T08:28:44+00:00"
+        },
+        {
+            "name": "beatswitch/lock-laravel",
+            "version": "0.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BeatSwitch/lock-laravel.git",
+                "reference": "397c81a607f61f0bc8548b9622779b05845822a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BeatSwitch/lock-laravel/zipball/397c81a607f61f0bc8548b9622779b05845822a0",
+                "reference": "397c81a607f61f0bc8548b9622779b05845822a0",
+                "shasum": ""
+            },
+            "require": {
+                "beatswitch/lock": "^0.2.0",
+                "illuminate/auth": "~5.3.0|~5.4.0",
+                "illuminate/database": "~5.3.0|~5.4.0",
+                "illuminate/support": "~5.3.0|~5.4.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "^0.3.2",
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BeatSwitch\\Lock\\Integrations\\Laravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dries Vints",
+                    "email": "dries.vints@gmail.com",
+                    "homepage": "http://driesvints.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "BeatSwitch",
+                    "email": "hello@beatswitch.com",
+                    "homepage": "https://www.beatswitch.com"
+                }
+            ],
+            "description": "A Laravel Driver for Lock.",
+            "homepage": "https://github.com/BeatSwitch/lock",
+            "keywords": [
+                "acl",
+                "asserts",
+                "beatswitch",
+                "conditions",
+                "drivers",
+                "laravel",
+                "permissions",
+                "roles",
+                "security"
+            ],
+            "time": "2017-03-11T22:29:15+00:00"
+        },
+        {
+            "name": "cartalyst/sentinel",
+            "version": "v2.0.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cartalyst/sentinel.git",
+                "reference": "3e9ca0dea161d67803f0fc87ecb5032228e53a53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cartalyst/sentinel/zipball/3e9ca0dea161d67803f0fc87ecb5032228e53a53",
+                "reference": "3e9ca0dea161d67803f0fc87ecb5032228e53a53",
+                "shasum": ""
+            },
+            "require": {
+                "cartalyst/support": "~1.0|~2.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/cookie": "~5.0",
+                "illuminate/database": "~5.0",
+                "illuminate/events": "~5.0",
+                "illuminate/http": "~5.0",
+                "illuminate/session": "~5.0",
+                "ircmaxell/password-compat": "~1.0",
+                "mockery/mockery": "~0.9",
+                "paragonie/random_compat": "^1.4|^2",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "illuminate/database": "By default, Sentinel utilizes the powerful Illuminate database layer.",
+                "illuminate/events": "To hook into various events across Sentinel, we recommend using Illuminate's event dispatcher.",
+                "ircmaxell/password-compat": "Default hashing uses PHP 5.5 password_* functions, with forward-compatible support.",
+                "symfony/http-foundation": "Required for native implementations."
+            },
+            "type": "library",
+            "extra": {
+                "component": "package",
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cartalyst\\Sentinel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Cartalyst LLC",
+                    "email": "help@cartalyst.com",
+                    "homepage": "https://cartalyst.com"
+                }
+            ],
+            "description": "PHP 5.4+ Fully-featured Authentication & Authorization System",
+            "keywords": [
+                "auth",
+                "cartalyst",
+                "codeigniter",
+                "fuelphp",
+                "laravel",
+                "php",
+                "security"
+            ],
+            "time": "2017-02-23T10:07:13+00:00"
+        },
+        {
+            "name": "cartalyst/support",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cartalyst/support.git",
+                "reference": "c32a7ebcf8dc8ebd6926e0059b3b3e23360e5abb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cartalyst/support/zipball/c32a7ebcf8dc8ebd6926e0059b3b3e23360e5abb",
+                "reference": "c32a7ebcf8dc8ebd6926e0059b3b3e23360e5abb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "illuminate/mail": "~5.0",
+                "illuminate/validation": "~5.0",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "^5.7",
+                "symfony/translation": "~3.2"
+            },
+            "type": "library",
+            "extra": {
+                "component": "package",
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cartalyst\\Support\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Cartalyst LLC",
+                    "email": "help@cartalyst.com",
+                    "homepage": "https://cartalyst.com"
+                }
+            ],
+            "description": "Support helpers.",
+            "keywords": [
+                "cartalyst",
+                "helper",
+                "laravel",
+                "support"
+            ],
+            "time": "2017-02-23T12:05:30+00:00"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "3.1.0",
@@ -159,6 +408,294 @@
                 "string"
             ],
             "time": "2015-11-06T14:35:42+00:00"
+        },
+        {
+            "name": "foothing/laravel-lock-routes",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/foothing/laravel-lock-routes.git",
+                "reference": "bd901323602a707a2daefbde36f10557ff517c6c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/foothing/laravel-lock-routes/zipball/bd901323602a707a2daefbde36f10557ff517c6c",
+                "reference": "bd901323602a707a2daefbde36f10557ff517c6c",
+                "shasum": ""
+            },
+            "require": {
+                "beatswitch/lock-laravel": "0.5.*",
+                "foothing/laravel-wrappr": "0.4.*",
+                "illuminate/auth": "~5.0",
+                "illuminate/database": "~5.0",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Foothing\\Wrappr\\Lock\\": "src/Lock"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "brazorf",
+                    "email": "fabrizio.ranieri@gmail.com"
+                }
+            ],
+            "description": "Add route-based checks for Laravel Lock permissions.",
+            "keywords": [
+                "laravel",
+                "lock",
+                "permissions",
+                "routes"
+            ],
+            "time": "2017-06-19T05:35:36+00:00"
+        },
+        {
+            "name": "foothing/laravel-repository",
+            "version": "0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/foothing/laravel-repository.git",
+                "reference": "5206cb4c2914da5e484cad519b58ae90035d12a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/foothing/laravel-repository/zipball/5206cb4c2914da5e484cad519b58ae90035d12a2",
+                "reference": "5206cb4c2914da5e484cad519b58ae90035d12a2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Foothing\\": "src/Foothing/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "brazorf",
+                    "email": "fabrizio.ranieri@gmail.com"
+                }
+            ],
+            "description": "This package provides an implementation of the repository pattern for Laravel 5.",
+            "keywords": [
+                "eloquent",
+                "laravel",
+                "repository"
+            ],
+            "time": "2016-10-06T15:47:06+00:00"
+        },
+        {
+            "name": "foothing/laravel-repository-controller",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/foothing/laravel-repository-controller.git",
+                "reference": "f6d99bf38b1c14a61af2144e222ea2194d8e8ef2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/foothing/laravel-repository-controller/zipball/f6d99bf38b1c14a61af2144e222ea2194d8e8ef2",
+                "reference": "f6d99bf38b1c14a61af2144e222ea2194d8e8ef2",
+                "shasum": ""
+            },
+            "require": {
+                "foothing/laravel-repository": ">=0.8.0",
+                "illuminate/routing": "~5.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "4.8.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Foothing\\RepositoryController\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "brazorf",
+                    "email": "fabrizio.ranieri@gmail.com"
+                }
+            ],
+            "description": "Resources controller with Eloquent Laravel Repository implementation.",
+            "time": "2016-07-28T17:46:25+00:00"
+        },
+        {
+            "name": "foothing/laravel-wrappr",
+            "version": "0.4.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/foothing/laravel-wrappr.git",
+                "reference": "c15c986c4d3a88089a837e2dd115de382660eca5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/foothing/laravel-wrappr/zipball/c15c986c4d3a88089a837e2dd115de382660eca5",
+                "reference": "c15c986c4d3a88089a837e2dd115de382660eca5",
+                "shasum": ""
+            },
+            "require": {
+                "foothing/laravel-repository": ">=0.7",
+                "illuminate/auth": "~5.0",
+                "illuminate/database": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "3.1.*",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Foothing\\": "src/Foothing"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "brazorf",
+                    "email": "fabrizio.ranieri@gmail.com"
+                }
+            ],
+            "description": "Bind permissions to Laravel routes.",
+            "keywords": [
+                "laravel",
+                "permissions",
+                "routes"
+            ],
+            "time": "2016-07-28T17:57:03+00:00"
+        },
+        {
+            "name": "foothing/uniform-json-responses",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/foothing/uniform-json-responses.git",
+                "reference": "81061c6522616ec2d7341cafb8c5aaec1711a6a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/foothing/uniform-json-responses/zipball/81061c6522616ec2d7341cafb8c5aaec1711a6a5",
+                "reference": "81061c6522616ec2d7341cafb8c5aaec1711a6a5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "~5.1",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.8.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Foothing\\Uniform\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "brazorf",
+                    "email": "fabrizio.ranieri@gmail.com"
+                }
+            ],
+            "description": "A PHP trait to uniform http responses.",
+            "time": "2017-06-19T05:21:06+00:00"
+        },
+        {
+            "name": "greggilbert/recaptcha",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/greggilbert/recaptcha.git",
+                "reference": "298cbc072e8ba734df2b8af798f848dacd27a4c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/greggilbert/recaptcha/zipball/298cbc072e8ba734df2b8af798f848dacd27a4c9",
+                "reference": "298cbc072e8ba734df2b8af798f848dacd27a4c9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.1",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/migrations"
+                ],
+                "psr-4": {
+                    "Greggilbert\\Recaptcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Gilbert",
+                    "email": "greg@greg-gilbert.com"
+                }
+            ],
+            "description": "reCAPTCHA Validator for Laravel 5",
+            "homepage": "http://github.com/greggilbert/recaptcha",
+            "keywords": [
+                "captcha",
+                "laravel",
+                "laravel5",
+                "recaptcha"
+            ],
+            "time": "2017-04-06T17:10:49+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -518,16 +1055,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.22.1",
+            "version": "1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "1e044bc4b34e91743943479f1be7a1d5eb93add0"
+                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1e044bc4b34e91743943479f1be7a1d5eb93add0",
-                "reference": "1e044bc4b34e91743943479f1be7a1d5eb93add0",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
+                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
                 "shasum": ""
             },
             "require": {
@@ -548,7 +1085,7 @@
                 "phpunit/phpunit-mock-objects": "2.3.0",
                 "ruflin/elastica": ">=0.90 <3.0",
                 "sentry/sentry": "^0.13",
-                "swiftmailer/swiftmailer": "~5.3"
+                "swiftmailer/swiftmailer": "^5.3|^6.0"
             },
             "suggest": {
                 "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
@@ -592,7 +1129,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2017-03-13T07:08:03+00:00"
+            "time": "2017-06-19T01:22:40+00:00"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -839,16 +1376,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.6",
+            "version": "v0.8.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "7028d6d525fb183d50b249b7c07598e3d386b27d"
+                "reference": "be969b9dc89dcaefdb9a3117fa91fa38bca19f50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/7028d6d525fb183d50b249b7c07598e3d386b27d",
-                "reference": "7028d6d525fb183d50b249b7c07598e3d386b27d",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/be969b9dc89dcaefdb9a3117fa91fa38bca19f50",
+                "reference": "be969b9dc89dcaefdb9a3117fa91fa38bca19f50",
                 "shasum": ""
             },
             "require": {
@@ -908,7 +1445,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-06-04T10:34:20+00:00"
+            "time": "2017-06-20T12:51:31+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -2595,16 +3132,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.20",
+            "version": "5.7.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3cb94a5f8c07a03c8b7527ed7468a2926203f58b"
+                "reference": "3b91adfb64264ddec5a2dee9851f354aa66327db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3cb94a5f8c07a03c8b7527ed7468a2926203f58b",
-                "reference": "3cb94a5f8c07a03c8b7527ed7468a2926203f58b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3b91adfb64264ddec5a2dee9851f354aa66327db",
+                "reference": "3b91adfb64264ddec5a2dee9851f354aa66327db",
                 "shasum": ""
             },
             "require": {
@@ -2673,7 +3210,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-05-22T07:42:55+00:00"
+            "time": "2017-06-21T08:11:54+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3464,7 +4001,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "foothing/uniform-json-responses": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
