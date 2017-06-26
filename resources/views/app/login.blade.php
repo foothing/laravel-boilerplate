@@ -31,8 +31,6 @@
             <input type="password" name="password" class="form-control" placeholder="Password">
         </div>
 
-        {!! Recaptcha::render() !!}
-
         <button type="submit" class="btn">Login</button>
     </form>
 
