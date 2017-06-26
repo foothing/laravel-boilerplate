@@ -5,11 +5,11 @@ Route::get('/', function () {
 });
 
 Route::get('message', 'App\Http\Controllers\MessageController@getIndex')->name('message');
+Route::get('auth/user', 'App\Http\Controllers\Auth\Sentinel\LoginController@getUser')->name('auth.user');
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('auth/login', 'App\Http\Controllers\Auth\Sentinel\LoginController@getLogin')->name('auth.login');
     Route::post('auth/login', 'App\Http\Controllers\Auth\Sentinel\LoginController@postLogin');
-    Route::get('auth/user', 'App\Http\Controllers\Auth\Sentinel\LoginController@getUser')->name('auth.user');
 
     Route::get('auth/register', 'App\Http\Controllers\Auth\Sentinel\RegisterController@getRegister')->name('auth.register');
     Route::get('auth/activate/{token}', 'App\Http\Controllers\Auth\Sentinel\RegisterController@getActivate')->name('auth.activate');

@@ -12,9 +12,16 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <link href="/assets/css/libs.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+
+<div id="app-preloader" ng-if="false">
+    <img src="/assets/img/preloader.gif">
+</div>
+
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12">

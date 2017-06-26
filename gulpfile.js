@@ -2,10 +2,12 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
+	minify = require('gulp-minify-css'),
 	copy = require('gulp-copy'),
 	ngAnnotate = require('gulp-ng-annotate'),
 	server = require('karma').Server,
-	merge = require('merge-stream');
+	merge = require('merge-stream'),
+	sass = require('gulp-sass');
 
 gulp.task('css', function() {
 	// @TODO concat w/ fix references.
@@ -36,6 +38,14 @@ gulp.task('js', function() {
 		.pipe(gulp.dest('public/assets/js'));
 });
 
+gulp.task('sass', function(){
+	gulp.src('resources/assets/sass/*')
+		.pipe(sass().on('error', sass.logError))
+		.pipe(concat('app.min.css'))
+		.pipe(minify())
+		.pipe(gulp.dest('public/assets/css'))
+});
+
 gulp.task('app', function() {
 	return gulp.src('public/src/**/*.js')
 		.pipe(concat('main.js'))
@@ -46,10 +56,12 @@ gulp.task('app', function() {
 });
 
 gulp.task('default', function(){
-	gulp.start('js', 'app', 'css');
+	gulp.start('js', 'app', 'css', 'sass');
 });
 
 gulp.task('watch', function(){
+	gulp.watch('resources/assets/sass/*', ['sass']);
+
 	gulp.watch('public/src/**/*.js', ['app']);
 
 	gulp.watch('public/tests/**/*.js', ['test']);
