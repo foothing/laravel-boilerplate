@@ -15,7 +15,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('auth/activate/{token}', 'App\Http\Controllers\Auth\Sentinel\RegisterController@getActivate')->name('auth.activate');
     Route::post('auth/register', 'App\Http\Controllers\Auth\Sentinel\RegisterController@postRegister');
 
-    Route::get('auth/password', 'App\Http\Controllers\Auth\Sentinel\PasswordController@getPassword');
+    Route::get('auth/password', 'App\Http\Controllers\Auth\Sentinel\PasswordController@getPassword')->name('auth.password');->name('auth.password');
     Route::post('auth/password', 'App\Http\Controllers\Auth\Sentinel\PasswordController@postPassword');
     Route::get('auth/reset/{token}', 'App\Http\Controllers\Auth\Sentinel\PasswordController@getReset')->name('auth.reset');
     Route::post('auth/reset', 'App\Http\Controllers\Auth\Sentinel\PasswordController@postReset');

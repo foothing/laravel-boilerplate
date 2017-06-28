@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers\Auth\Sentinel;
 
 use App\Http\Traits\FlashesMessages;
+use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
