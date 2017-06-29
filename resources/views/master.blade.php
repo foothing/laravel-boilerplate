@@ -18,7 +18,7 @@
 <body>
 
 <div class="app-preloader" ng-if="false">
-    <img src="/assets/img/preloader.gif">
+    <img class="centered" src="/assets/img/preloader.gif">
 </div>
 
 

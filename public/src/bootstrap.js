@@ -3,7 +3,7 @@ angular.element(document).ready(function() {
 
 	// i.e.
 	//auth.user().then(function(response){
-	// 	if (response && response.id) {
+	// 	if (response.data && response.data.id) {
 	//		console.log(response);
 	//		return angular.bootstrap(document, ['app']);
 	//	}

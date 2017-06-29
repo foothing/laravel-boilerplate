@@ -7,7 +7,8 @@ var gulp = require('gulp'),
 	ngAnnotate = require('gulp-ng-annotate'),
 	server = require('karma').Server,
 	merge = require('merge-stream'),
-	sass = require('gulp-sass');
+	sass = require('gulp-sass'),
+	embedTemplaets = require('gulp-angular-embed-templates');
 
 gulp.task('css', function() {
 	// @TODO concat w/ fix references.
@@ -31,7 +32,9 @@ gulp.task('js', function() {
 			'node_modules/angular/angular.min.js',
 			'node_modules/angular-ui-router/release/angular-ui-router.min.js',
 			'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
-			'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'
+			'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
+			'node_modules/angular-translate/dist/angular-translate.min.js',
+			'node_modules/angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js'
 		])
 		.pipe(concat('libs.min.js'))
 		.pipe(uglify())
@@ -48,6 +51,7 @@ gulp.task('sass', function(){
 
 gulp.task('app', function() {
 	return gulp.src('public/src/**/*.js')
+		.pipe(embedTemplaets())
 		.pipe(concat('main.js'))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(ngAnnotate())
@@ -62,7 +66,7 @@ gulp.task('default', function(){
 gulp.task('watch', function(){
 	gulp.watch('resources/assets/sass/*', ['sass']);
 
-	gulp.watch('public/src/**/*.js', ['app']);
+	gulp.watch(['public/src/**/*.js', 'public/src/**/*.html'], ['app']);
 
 	gulp.watch('public/tests/**/*.js', ['test']);
 });
