@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/test', function (Request $request) {
+
+    return "you see this, you are authenticated.";
+
 })->middleware('auth:api');

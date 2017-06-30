@@ -1,16 +1,28 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
-use Illuminate\Routing\Controller;
+namespace App\Http\Controllers;
 
-class HomeController extends Controller {
+use Illuminate\Http\Request;
 
-    public function getIndex() {
-        if (Sentinel::getUser()) {
-            return view('app.home');
-        }
-
-        return view('app.guest');
+class HomeController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('home');
+    }
 }
