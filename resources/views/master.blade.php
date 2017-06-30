@@ -26,6 +26,8 @@
     <div class="row">
         <div class="col-xs-12">
 
+            {!! Auth::user() !!}
+
             <ul>
                 <li><a href="/auth/login">Login</a></li>
                 <li><a href="/auth/register">Register</a></li>
