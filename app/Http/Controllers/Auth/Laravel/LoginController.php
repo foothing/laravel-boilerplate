@@ -1,26 +1,36 @@
-<?php namespace App\Http\Controllers\Auth\Sentinel;
+<?php namespace App\Http\Controllers\Auth\Laravel;
 
 use App\Http\Traits\FlashesMessages;
+use App\Services\Auth\LoginInterface;
 use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
+use Illuminate\Auth\SessionGuard;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller {
 
-    use FlashesMessages;
+    use FlashesMessages, ThrottlesLogins;
 
     /**
      * @var \Illuminate\Contracts\Auth\StatefulGuard
      */
     protected $guard;
 
-    public function __construct(StatefulGuard $guard){
-        $this->guard = $guard;
+    /**
+     * @var \App\Services\Auth\LoginInterface
+     */
+    protected $service;
+
+    public function __construct(LoginInterface $service){
+        $this->guard = Auth::guard();
+        $this->service = $service;
     }
 
     /**
@@ -40,8 +50,14 @@ class LoginController extends Controller {
      * @return mixed
      */
     public function postLogin(Request $request) {
+        if ($this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
         try {
-            $input = $request->all();
+            $input = $request->except('_token');
             $rules = ['email' => 'required|email','password' => 'required',];
             $validator = Validator::make($input, $rules);
 
@@ -50,9 +66,11 @@ class LoginController extends Controller {
             }
 
             $remember = (bool)Input::get('remember', false);
-            if ($this->guard->attempt($input, $remember)) {
+            if ($this->service->attempt($input, $remember)) {
                 return Redirect::intended('/');
             }
+
+            $this->incrementLoginAttempts($request);
 
             $errors = trans('auth.failed');
         }
@@ -74,12 +92,16 @@ class LoginController extends Controller {
     }
 
     public function getLogout() {
-        $this->guard->logout();
+        $this->service->logout();
         return redirect()->to('/');
     }
 
     public function getUser() {
         $user = $this->guard->user();
         return $user ? $user->load('roles') : null;
+    }
+
+    protected function username() {
+        return "email";
     }
 }

@@ -48,8 +48,10 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\SentinelAuth::class,
-        'guest' => \App\Http\Middleware\SentinelGuest::class,
+        //'auth' => \App\Http\Middleware\SentinelAuth::class,
+        'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
+        //'guest' => \App\Http\Middleware\SentinelGuest::class,
+        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,

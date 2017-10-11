@@ -18,13 +18,15 @@
 <body>
 
 <div class="app-preloader" ng-if="false">
-    <img src="/assets/img/preloader.gif">
+    <img class="centered" src="/assets/img/preloader.gif">
 </div>
 
 
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
+
+            {!! Auth::user() !!}
 
             <ul>
                 <li><a href="/auth/login">Login</a></li>

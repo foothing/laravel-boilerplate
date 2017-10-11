@@ -10,8 +10,17 @@
 		});
 	});
 
-	module.run(function(){
+	module.config(function($translateProvider){
+		$translateProvider.useStaticFilesLoader({
+			prefix: '/assets/locales/locale-',
+			suffix: '.json'
+		});
+
+		$translateProvider.preferredLanguage('it');
+	});
+
+	module.run(function(auth){
 		//alert('Boilerplate.');
 	});
 
-})(angular, angular.module('app', ['ui.router', 'ui.bootstrap', 'app.foo', 'app.bar']));
+})(angular, angular.module('app', ['ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'auth', 'app.foo', 'app.bar']));
