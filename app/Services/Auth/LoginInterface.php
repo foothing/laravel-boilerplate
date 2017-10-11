@@ -4,4 +4,6 @@ interface LoginInterface {
 
     public function attempt(array $credentials, $remember);
 
+    public function logout();
+
 }

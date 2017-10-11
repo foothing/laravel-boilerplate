@@ -5,7 +5,7 @@ Route::get('/', function () {
 });
 
 Route::get('message', 'App\Http\Controllers\MessageController@getIndex')->name('message');
-Route::get('auth/user', 'App\Http\Controllers\Auth\Sentinel\LoginController@getUser')->name('auth.user');
+Route::get('auth/user', 'App\Http\Controllers\Auth\Laravel\LoginController@getUser')->name('auth.user');
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('auth/login', 'App\Http\Controllers\Auth\Laravel\LoginController@getLogin')->name('auth.login');

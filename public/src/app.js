@@ -19,8 +19,8 @@
 		$translateProvider.preferredLanguage('it');
 	});
 
-	module.run(function(){
+	module.run(function(auth){
 		//alert('Boilerplate.');
 	});
 
-})(angular, angular.module('app', ['ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'app.foo', 'app.bar']));
+})(angular, angular.module('app', ['ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'auth', 'app.foo', 'app.bar']));

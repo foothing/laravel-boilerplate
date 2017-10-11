@@ -92,7 +92,7 @@ class LoginController extends Controller {
     }
 
     public function getLogout() {
-        $this->guard->logout();
+        $this->service->logout();
         return redirect()->to('/');
     }
 
