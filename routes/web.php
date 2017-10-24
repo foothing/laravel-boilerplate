@@ -1,8 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return view('app.home');
-});
+Route::get('/', 'App\Http\Controllers\HomeController@getIndex');
 
 Route::get('message', 'App\Http\Controllers\MessageController@getIndex')->name('message');
 Route::get('auth/user', 'App\Http\Controllers\Auth\Laravel\LoginController@getUser')->name('auth.user');

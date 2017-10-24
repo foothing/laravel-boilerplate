@@ -11,12 +11,11 @@
 				},
 
 				set: function(user) {
-					storage.set("user", JSON.stringify(user));
+					storage.set("user", user);
 				},
 
 				get: function() {
-					var user = storage.get("user");
-					return JSON.parse(user);
+					return storage.get("user");
 				},
 
 				clear: function() {
