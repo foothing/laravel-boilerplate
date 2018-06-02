@@ -35,4 +35,8 @@ Edit your `package.json` with a proper name, then in your development server run
 
 `npm install`
 
+and
 
+`gulp`
+
+to bundle dependencies toghether.
