@@ -65,6 +65,10 @@ gulp.task('default', function(){
 });
 
 gulp.task('watch', function(){
+	gulp.start('default', 'watch-app');
+});
+
+gulp.task('watch-app', function(){
 	gulp.watch('resources/assets/sass/*', ['sass']);
 
 	gulp.watch(['public/src/**/*.js', 'public/src/**/*.html'], ['app']);
