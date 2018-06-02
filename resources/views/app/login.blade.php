@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Log the fuck in</h1>
+<h1>Please login</h1>
 
 <section>
 

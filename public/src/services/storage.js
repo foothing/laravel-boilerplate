@@ -16,6 +16,9 @@
 
 				get: function(key) {
 					var value = localStorage.getItem(key);
+					if (! value || value === 'undefined') {
+						return null;
+					}
 					return JSON.parse(value);
 				},
 

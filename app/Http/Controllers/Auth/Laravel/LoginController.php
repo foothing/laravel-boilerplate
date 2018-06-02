@@ -57,7 +57,7 @@ class LoginController extends Controller {
         }
 
         try {
-            $input = $request->except('_token');
+            $input = $request->except(['_token', 'remember']);
             $rules = ['email' => 'required|email','password' => 'required',];
             $validator = Validator::make($input, $rules);
 
