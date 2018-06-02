@@ -17,6 +17,7 @@ Configure your database in `config/database.php`
 
 ## Setup revision code
 
+- create a `revision` empty file in your project root
 - go in your repository hooks `.git/hooks` directory
 - add a `post-commit` hook with the following code:
 
