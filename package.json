@@ -29,6 +29,7 @@
   "dependencies": {
     "angular": "^1.6.4",
     "angular-mocks": "^1.6.4",
+	"angular-permission": "^6.0.0",
 	"angular-translate": "^2.15.2",
     "angular-ui-bootstrap": "^2.5.0",
     "angular-ui-router": "^1.0.3",
