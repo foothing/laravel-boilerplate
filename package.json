@@ -1,6 +1,6 @@
 {
   "name": "laravel-boilerplate",
-  "version": "0",
+  "version": "0.1.0",
   "main": "index.js",
   "author": "brazorf",
   "license": "MIT",
@@ -10,6 +10,7 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-angular-embed-templates": "^2.3.0",
     "gulp-concat": "^2.6.1",
@@ -29,8 +30,7 @@
   "dependencies": {
     "angular": "^1.6.4",
     "angular-mocks": "^1.6.4",
-	"angular-permission": "^6.0.0",
-	"angular-translate": "^2.15.2",
+    "angular-translate": "^2.15.2",
     "angular-ui-bootstrap": "^2.5.0",
     "angular-ui-router": "^1.0.3",
     "bootstrap": "^3.3.7"

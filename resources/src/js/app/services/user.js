@@ -1,6 +1,6 @@
 (function(angular, module){
 
-	module.provider('$user', [function(){
+	module.provider('user', [function(){
 
 		this.$get = ['defaultStorage', function(storage){
 			return {

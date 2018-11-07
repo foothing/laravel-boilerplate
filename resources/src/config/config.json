@@ -1,0 +1,76 @@
+{
+    "locale": "resources/src/locales/locale-it.json",
+
+    "output": {
+        "css": "public/build",
+        "js": "public/build"
+    },
+
+    "css": {
+        "vendor": [
+            "node_modules/ui-bootstrap4/dist/ui-bootstrap-csp.css",
+            "node_modules/angular-toastr/dist/angular-toastr.min.css",
+            "node_modules/sweetalert2/dist/sweetalert2.css",
+            "node_modules/ng-tags-input/build/ng-tags-input.min.css",
+            "node_modules/ng-tags-input/build/ng-tags-input.bootstrap.min.css",
+            "node_modules/angular-modal/modal.css",
+            "node_modules/fancybox-plus/css/jquery.fancybox-plus.css"
+        ],
+
+        "theme": {
+            "default": [
+            ],
+
+            "horizontal": [
+            ]
+        }
+    },
+
+    "js": {
+        "app": [
+            "resources/src/js/app/*.js",
+            "resources/src/js/app/**/*.js"
+        ],
+
+        "vendor": [
+            "node_modules/angular/angular.min.js",
+            "resources/src/js/uirouter/core/ui-router-core.min.js",
+            "resources/src/js/uirouter/sticky-states/ui-router-sticky-states.js",
+            "node_modules/angular-ui-router/release/ui-router-angularjs.min.js",
+            "node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js",
+            "node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js",
+            "node_modules/angular-translate/dist/angular-translate.min.js",
+            "node_modules/angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js",
+            "node_modules/ngstorage/ngStorage.min.js",
+            "node_modules/angular-laravel-client/dist/angular-laravel-client.js",
+            "node_modules/ng-flow/dist/ng-flow-standalone.min.js",
+            "node_modules/angular-toastr/dist/angular-toastr.js",
+            "node_modules/angular-toastr/dist/angular-toastr.tpls.min.js",
+            "node_modules/ui-bootstrap4/dist/ui-bootstrap.js",
+            "node_modules/ui-bootstrap4/dist/ui-bootstrap-tpls.js",
+            "node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+            "node_modules/ng-tags-input/build/ng-tags-input.min.js",
+            "node_modules/angular-smart-table/dist/smart-table.min.js",
+            "node_modules/moment/min/moment-with-locales.min.js",
+            "node_modules/angular-moment/angular-moment.min.js",
+            "node_modules/ng-infinite-scroll/build/ng-infinite-scroll.min.js",
+            "node_modules/chart.js/dist/Chart.min.js",
+            "node_modules/angular-chart.js/angular-chart.js",
+            "node_modules/angular-permission/dist/angular-permission.min.js",
+            "node_modules/angular-permission/dist/angular-permission-ui.min.js",
+            "node_modules/angular-modal/modal.min.js",
+            "node_modules/angulargrid/angulargrid.min.js",
+            "node_modules/fancybox-plus/dist/jquery.fancybox-plus.min.js",
+            "node_modules/angular-fancybox-plus/js/angular-fancybox-plus.js",
+            "node_modules/hlg-angular-lazy-img/release/angular-lazy-img.min.js"
+        ],
+
+        "theme": {
+            "default": [
+            ],
+
+            "horizontal": [
+            ]
+        }
+    }
+}

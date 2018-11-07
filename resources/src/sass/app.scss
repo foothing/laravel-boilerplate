@@ -1,0 +1,17 @@
+@import 'variables';
+
+.app-preloader {
+
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(31,123,184, 1);
+  z-index: $max-zindex;
+}

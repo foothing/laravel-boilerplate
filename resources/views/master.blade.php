@@ -11,8 +11,9 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-    <link href="/assets/css/libs.min.css" rel="stylesheet" type="text/css">
-    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css">
+    <link href="/build/libs.min.css" rel="stylesheet" type="text/css">
+    <link href="/build/theme.min.css" rel="stylesheet" type="text/css">
+    <link href="/build/app.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -41,8 +42,8 @@
     </div>
 </div>
 
-<script src="/assets/js/libs.min.js?<?=$_v?>"></script>
-<script src="/assets/js/main.min.js?<?=$_v?>"></script>
+<script src="/build/libs.min.js?<?=$_v?>"></script>
+<script src="/build/main.min.js?<?=$_v?>"></script>
 </body>
 
 </html>

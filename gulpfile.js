@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    del = require('del'),
 	rename = require('gulp-rename'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
@@ -10,78 +11,108 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	embedTemplaets = require('gulp-angular-embed-templates');
 
+var config = require('./resources/src/config/config.json');
+
+gulp.task('clean', function(){
+    for (var i in config.output) {
+        console.log("Cleaning " + config.output[i]);
+        del(config.output[i] + "/*");
+    }
+});
+
+//
+//
+//  CSS
+//
+//
+
+gulp.task('css-vendor', function() {
+    return gulp.src(config.css.vendor).pipe(concat('libs.min.css')).pipe(gulp.dest(config.output.css));
+});
+
+gulp.task('css-theme-default', function() {
+    return gulp.src(config.css.theme.default).pipe(concat('theme.min.css')).pipe(gulp.dest(config.output.css));
+});
+
+gulp.task('css-theme-horizontal', function() {
+    return gulp.src(config.css.theme.horizontal).pipe(concat('theme-topnav.min.css')).pipe(gulp.dest(config.output.css));
+});
+
 gulp.task('css', function() {
-	// @TODO concat w/ fix references.
-	// https://stackoverflow.com/questions/44635984/concat-and-minify-assets-from-3rd-party-libraries
+    gulp.start('css-vendor', 'css-theme-default', 'css-theme-horizontal');
+});
 
-	var styles = [
-		'node_modules/bootstrap/dist/css/bootstrap.min.css',
+//
+//
+//  SASS
+//
+//
 
-		'node_modules/angular-toastr/dist/angular-toastr.min.css'
-	];
+gulp.task('sass', function(){
+    gulp.src('resources/src/sass/*')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(concat('app.min.css'))
+        .pipe(minify())
+        .pipe(gulp.dest('public/assets/css'))
+});
 
-	var css =
-		gulp.src(styles)
-		.pipe(concat('libs.min.css'))
-		.pipe(gulp.dest('public/assets/css'));
-	var assets =
-		gulp.src(['node_modules/bootstrap/dist/fonts/*'])
-		.pipe(gulp.dest('public/assets/fonts'));
+//
+//
+//  JS
+//
+//
 
-	return merge(css, assets);
+gulp.task('js-vendor', function() {
+    return gulp.src(config.js.vendor).pipe(concat('libs.min.js')).pipe(gulp.dest(config.output.js));
+});
+
+gulp.task('js-theme-default', function() {
+    return gulp.src(config.js.theme.default).pipe(concat('theme.min.js')).pipe(gulp.dest(config.output.js));
+});
+
+gulp.task('js-theme-topnav', function() {
+    return gulp.src(config.js.theme.horizontal).pipe(concat('theme-topnav.min.js')).pipe(gulp.dest(config.output.js));
 });
 
 gulp.task('js', function() {
-	return gulp.src([
-			'node_modules/angular/angular.min.js',
-			'node_modules/angular-ui-router/release/angular-ui-router.min.js',
-			'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
-			'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
-			'node_modules/angular-translate/dist/angular-translate.min.js',
-			'node_modules/angular-translate/dist/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
-			'node_modules/ngstorage/ngStorage.min.js',
-			'node_modules/angular-permission/dist/angular-permission.min.js',
-			'node_modules/angular-permission/dist/angular-permission-ui.min.js',
-			'node_modules/angular-toastr/dist/angular-toastr.js',
-			'node_modules/angular-toastr/dist/angular-toastr.tpls.min.js'
-		])
-		.pipe(concat('libs.min.js'))
-		.pipe(uglify())
-		.pipe(gulp.dest('public/assets/js'));
+    gulp.start('js-vendor', 'js-theme-default', 'js-theme-topnav');
 });
 
-gulp.task('sass', function(){
-	gulp.src('resources/assets/sass/*')
-		.pipe(sass().on('error', sass.logError))
-		.pipe(concat('app.min.css'))
-		.pipe(minify())
-		.pipe(gulp.dest('public/assets/css'))
-});
+//
+//
+//  BUNDLES
+//
+//
 
 gulp.task('app', function() {
-	return gulp.src('public/src/**/*.js')
+	return gulp.src(config.js.app)
 		.pipe(embedTemplaets())
-		.pipe(concat('main.js'))
-		.pipe(rename({ suffix: '.min' }))
+		.pipe(concat('main.min.js'))
+		//.pipe(rename({ suffix: '.min' }))
 		.pipe(ngAnnotate())
 		.pipe(uglify())
-		.pipe(gulp.dest('public/assets/js'));
+		.pipe(gulp.dest(config.output.js));
 });
 
-gulp.task('default', function(){
-	gulp.start('js', 'app', 'css', 'sass');
+gulp.task('locale', function(){
+    return gulp.src(config.locale).pipe(gulp.dest(config.output.js));
+});
+
+gulp.task('develop', function(){
+    gulp.start('clean', 'js', 'css', 'sass', 'app', 'locale', 'watch');
 });
 
 gulp.task('watch', function(){
-	gulp.start('default', 'watch-app');
-});
+	gulp.watch('resources/src/sass/*', ['sass']);
 
-gulp.task('watch-app', function(){
-	gulp.watch('resources/assets/sass/*', ['sass']);
+	gulp.watch([
+        'resources/src/js/app/**/*.js',
+        'resources/src/js/app/*.js',
+        'resources/src/js/app/**/*.html',
+        'resources/src/locales/*'
+    ], ['app']);
 
-	gulp.watch(['public/src/**/*.js', 'public/src/**/*.html'], ['app']);
-
-	gulp.watch('public/tests/**/*.js', ['test']);
+	gulp.watch('resources/js/tests/**/*.js', ['test']);
 });
 
 gulp.task('test', function (done) {

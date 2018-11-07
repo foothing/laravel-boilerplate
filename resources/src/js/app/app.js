@@ -19,9 +19,8 @@
 		$translateProvider.preferredLanguage('it');
 	});
 
-	module.run(function(auth, PermPermissionStore){
+	module.run(function(auth){
 		//alert('Boilerplate.');
-		// Do something with permissions.
 	});
 
 })(angular, angular.module('app', ['ui.router', 'ui.bootstrap', 'pascalprecht.translate', 'auth', 'app.foo', 'app.bar']));
