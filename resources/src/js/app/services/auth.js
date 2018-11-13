@@ -1,15 +1,15 @@
 (function(angular, module){
 
 	module.provider('auth', [function(){
-		this.$get = ['$http', 'user', function($http, user){
+		this.$get = ['$http', '$user', function($http, $user){
 			return {
 				user: function(){
 					return $http.get('/auth/user').then(function(response){
 						// Clear user storage.
-						user.clear();
+						$user.clear();
 
 						// Set new user.
-						user.set(response.data);
+						$user.set(response.data);
 
 						// Return.
 						return response.data;
