@@ -212,10 +212,10 @@
 	});
 
 	module.provider('apiInterceptor', function() {
-		this.$get = ['user', 'toastr', '$q', function(user, toastr, $q) {
+		this.$get = ['$user', 'toastr', '$q', function($user, toastr, $q) {
 			return {
 				request: function(config) {
-					config.headers['Authorization'] = 'Bearer ' + user.token();
+					config.headers['Authorization'] = 'Bearer ' + $user.token();
 					return config;
 				},
 
