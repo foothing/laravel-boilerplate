@@ -43,7 +43,7 @@ class PasswordService implements PasswordResetInterface {
         return true;
     }
 
-    protected function createReminder($user) {
+    public function createReminder($user) {
         $reminder = new Reminder();
         $reminder->email = $user->email;
         $reminder->token = str_random(64);

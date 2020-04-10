@@ -17,6 +17,7 @@ use App\Services\Auth\PasswordResetInterface;
 use App\Services\Auth\Laravel\PasswordService;
 use App\Repositories\User\ReminderRepositoryInterface;
 use App\Repositories\User\Laravel\ReminderRepository;
+use Laravel\Dusk\DuskServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -65,5 +66,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(ReminderRepositoryInterface::class, function($app){
             return $app->make(ReminderRepository::class);
         });
+
+        if ($this->app->environment('local', 'testing')) {
+            $this->app->register(DuskServiceProvider::class);
+        }
     }
 }
